@@ -1,8 +1,7 @@
 # strava_api
-<p align="center">
-
-<a href="https://pypi.python.org/pypi/strava_api">
-<img src="https://img.shields.io/pypi/v/strava_api.svg" /></a>
+<p>
+<!-- <a href="https://pypi.python.org/pypi/strava_api"> -->
+<!-- <img src="https://img.shields.io/pypi/v/strava_api.svg" /></a> -->
 <a href="https://travis-ci.org/yknot/strava_api"><img src="https://travis-ci.org/yknot/strava_api.svg?branch=master" /></a>
 </p>
 A python library for working with the Strava API

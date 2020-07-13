@@ -1,5 +1,5 @@
-from strava_api import strava_api
+from strava_api.Client import Client
 
 
 def test_strava_api():
-    assert strava_api is not None
+    assert Client() is not None
