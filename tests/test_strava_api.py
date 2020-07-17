@@ -1,7 +1,7 @@
 import json
 from strava_api.Client import Client
 
-config = json.load(open("config.json"))
+config = json.load(open("example_config.json"))
 
 
 def test_strava_api():

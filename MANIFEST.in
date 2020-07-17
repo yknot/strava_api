@@ -1,5 +1,5 @@
 graft src
-include *.md LICENSE
+include *.md LICENSE example_config.json
 
 exclude .flake8 noxfile.py .coveragerc
 prune tests
