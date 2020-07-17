@@ -1,10 +1,12 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from subprocess import Popen
 
-auth_code = None
-
 
 class MyServer(BaseHTTPRequestHandler):
+    def __init__(self) -> None:
+        super().__init__()
+        self.auth_code = None
+
     def do_GET(self):
         global auth_code
         self.send_response(200)
@@ -21,7 +23,7 @@ class MyServer(BaseHTTPRequestHandler):
             self.wfile.write(bytes("<p>Thank you for authorizing.</p>", "utf-8"))
             start = self.path.find("code=") + len("code=")
             end = self.path.find("&", start)
-            auth_code = self.path[start:end]
+            self.auth_code = self.path[start:end]
         else:
             self.wfile.write(
                 bytes(
@@ -33,7 +35,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("</body></html>", "utf-8"))
 
 
-def authenticate(client_id):
+def authenticate(client_id: str) -> str:
     global auth_code
     webServer = HTTPServer(("localhost", 8080), MyServer)
 
@@ -46,10 +48,9 @@ def authenticate(client_id):
 
     while True:
         webServer.handle_request()
-        if auth_code:
+        if webServer.auth_code:
             break
 
     webServer.server_close()
 
-    return auth_code
-
+    return webServer.auth_code
