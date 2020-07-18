@@ -21,6 +21,7 @@ lint_dependencies = [
 @nox.session(python=python)
 def tests(session):
     session.install("-e", ".", "pytest", "pytest-cov")
+    session.install("-r", "requirements.txt")
     tests = session.posargs or ["tests"]
     session.run(
         "pytest",
