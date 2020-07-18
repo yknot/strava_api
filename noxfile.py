@@ -2,6 +2,7 @@ import nox  # type: ignore
 from pathlib import Path
 
 nox.options.sessions = ["tests", "lint", "build"]
+nox.options.reuse_existing_virtualenvs = True
 
 python = ["3.7", "3.8"]
 

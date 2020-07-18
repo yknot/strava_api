@@ -104,3 +104,6 @@ ENV/
 
 # IDE settings
 .vscode/
+
+# interim testing files
+src/scratch.py
